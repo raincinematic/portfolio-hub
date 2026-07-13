@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rain Management Solutions | Portfolio</title>
+<meta name="description" content="Cinematic Brand Experiences. Lasting Impressions. The Rain Management Solutions portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C0A07;
+  --charcoal:#14110C;
+  --panel:#1B1712;
+  --gold:#C9A250;
+  --gold-bright:#E3C078;
+  --gold-soft:rgba(201,162,80,.35);
+  --cream:#F0E8D8;
+  --cream-dim:rgba(240,232,216,.62);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'Cormorant Garamond',serif;
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+/* soft film grain */
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;z-index:20;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+
+/* ---------- HEADER ---------- */
+header{
+  position:relative;
+  text-align:center;
+  padding:5.5rem 1.5rem 3.5rem;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%,rgba(201,162,80,.14),transparent 70%),
+    linear-gradient(180deg,var(--charcoal),var(--ink));
+}
+.mark{
+  font-size:.7rem;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:500;
+  margin-bottom:1.4rem;
+}
+h1{
+  font-weight:500;
+  font-size:clamp(2.3rem,8.5vw,4.2rem);
+  line-height:1.08;
+  letter-spacing:.04em;
+}
+h1 .accent{
+  display:block;
+  font-style:italic;
+  font-weight:400;
+  color:var(--gold-bright);
+}
+.tagline{
+  margin-top:1.3rem;
+  font-style:italic;
+  font-size:clamp(1.05rem,4vw,1.35rem);
+  color:var(--cream-dim);
+}
+.header-rule{
+  width:70px;height:1px;
+  margin:2.2rem auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* ---------- CARDS ---------- */
+main{
+  max-width:680px;
+  margin:0 auto;
+  padding:2.5rem 1.25rem 4rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.1rem;
+}
+.section-label{
+  text-align:center;
+  font-size:.66rem;
+  letter-spacing:.45em;
+  text-transform:uppercase;
+  color:var(--cream-dim);
+  margin-bottom:.6rem;
+}
+.card{
+  display:block;
+  position:relative;
+  background:linear-gradient(150deg,var(--panel),var(--charcoal));
+  border:1px solid rgba(201,162,80,.22);
+  padding:1.7rem 1.6rem 1.6rem;
+  transition:border-color .35s,transform .35s,box-shadow .35s;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
+  opacity:0;
+  transition:opacity .35s;
+}
+.card:hover,.card:focus-visible{
+  border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 14px 44px rgba(0,0,0,.5),0 0 34px rgba(201,162,80,.10);
+  outline:none;
+}
+.card:hover::before,.card:focus-visible::before{opacity:1}
+.card:active{transform:translateY(-1px)}
+.card-kicker{
+  font-size:.62rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:500;
+  margin-bottom:.5rem;
+  font-family:'Cormorant Garamond',serif;
+}
+.card h2{
+  font-weight:500;
+  font-size:1.65rem;
+  letter-spacing:.03em;
+  line-height:1.15;
+}
+.card p{
+  margin-top:.45rem;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--cream-dim);
+}
+.card .arrow{
+  position:absolute;
+  top:1.7rem;right:1.5rem;
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  opacity:.6;
+  transition:opacity .35s,transform .35s;
+}
+.card:hover .arrow{opacity:1;transform:translateX(4px)}
+
+/* featured studio card */
+.card.studio{
+  margin-top:1.2rem;
+  text-align:center;
+  border-color:var(--gold-soft);
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 100%,rgba(201,162,80,.12),transparent 70%),
+    linear-gradient(180deg,var(--panel),var(--charcoal));
+  padding:2.2rem 1.6rem;
+}
+.card.studio .arrow{display:none}
+.card.studio h2{font-size:1.8rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:2.4rem 1.5rem 3rem;
+  border-top:1px solid rgba(240,232,216,.07);
+  font-size:.85rem;
+  color:rgba(240,232,216,.4);
+  letter-spacing:.08em;
+}
+footer .fmark{
+  display:block;
+  font-size:.62rem;
+  letter-spacing:.45em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:.5rem;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media (min-width:700px){
+  main{padding-top:3rem}
+  .card{padding:2rem 2.2rem 1.9rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="mark">Rain Management Solutions</p>
+  <h1>The Portfolio<span class="accent">A Cinematic Collection</span></h1>
+  <p class="tagline">Cinematic Brand Experiences. Lasting Impressions.</p>
+  <div class="header-rule"></div>
+</header>
+
+<main>
+  <p class="section-label reveal">Featured Work</p>
+
+  <a class="card reveal" href="https://raincinematic.github.io/rafi-demo/rafael-castillo-epk.html" target="_blank" rel="noopener">
+    <p class="card-kicker">Actor · EPK</p>
+    <h2>Rafael Castillo</h2>
+    <p>Screen presence, packaged with trailer energy.</p>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card reveal" href="https://raincinematic.github.io/rolonda-demo/rolonda-rochelle-epk.html" target="_blank" rel="noopener">
+    <p class="card-kicker">Actress &amp; Producer · EPK</p>
+    <h2>Rolonda Rochelle</h2>
+    <p>A red carpet arrival in page form.</p>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card reveal" href="https://raincinematic.github.io/cecelia-demo/cecelia-friday-epk.html" target="_blank" rel="noopener">
+    <p class="card-kicker">Actress · EPK</p>
+    <h2>Cecelia Friday</h2>
+    <p>A story told in cinematic frames.</p>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card reveal" href="https://raincinematic.github.io/jaysaint-demo/jay-saint-epk.html" target="_blank" rel="noopener">
+    <p class="card-kicker">Musician · EPK</p>
+    <h2>Jay Saint</h2>
+    <p>Sound given a visual stage.</p>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card reveal" href="https://raincinematic.github.io/ava-demo/ava-monroe-epk.html" target="_blank" rel="noopener">
+    <p class="card-kicker">Actress · Demo</p>
+    <h2>Ava Monroe</h2>
+    <p>The RMS style, in full frame.</p>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card studio reveal" href="https://raincinematic.github.io/rain-management-solutions/" target="_blank" rel="noopener">
+    <p class="card-kicker">The Studio</p>
+    <h2>Rain Management Solutions</h2>
+    <p>The studio behind every page here.</p>
+  </a>
+</main>
+
+<footer>
+  <span class="fmark">Rain Management Solutions</span>
+  Cinematic Brand Experiences. Lasting Impressions.
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
